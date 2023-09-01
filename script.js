@@ -31,20 +31,20 @@ web3Modal = new Web3Modal({
 connectWalletBtn.addEventListener("click", async () => {
   try {
     provider = await web3Modal.connect();
+    const web3 = new Web3(provider);
+    const accounts = await web3.eth.getAccounts();
+    wallet = accounts[0];
   } catch (err) {
     console.log("Could not get a wallet connection", err);
     return;
   }
-  const web3 = new Web3(provider);
-  const accounts = await web3.eth.getAccounts();
-  wallet = accounts[0];
 });
 
 mintBtn.addEventListener("click", async () => {
   try {
     await contractInstance.methods.publicMint().send({
       from: wallet,
-      value: web3.utils.toWei("0.01", "ether"),
+      value: web3.utils.toWei("0.015", "ether"),
       gasLimit: 300000,
     });
   } catch (err) {
