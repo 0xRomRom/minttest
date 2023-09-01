@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: black;
+}
+
+.btn {
+  width: 10rem;
+  height: 2rem;
+  font-size: 20px;
+  cursor: pointer;
+}
+.btn:active {
+  background-color: rgb(187, 185, 185);
+}
